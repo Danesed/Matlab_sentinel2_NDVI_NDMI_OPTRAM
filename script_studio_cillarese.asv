@@ -425,7 +425,7 @@ hold off
 
 %%% calcolo media sui centroidi
 
-s = regionprops(ndvi_crop_mask_smooth,Campo_crop_esempio_smooth,{'Centroid','PixelValues','BoundingBox','Area'});
+s = regionprops(ndvi_crop_mask_smooth,Campo_crop_esempio_smooth,{'Area','Centroid','PixelValues','BoundingBox'});
 %imshow(Campo_crop_esempio)
 imshow(NDVI_list_crop{4})
 %imshow(labeloverlay(Campo_crop_esempio,BWfinal))
@@ -433,9 +433,8 @@ imshow(NDVI_list_crop{4})
 title('Mean value of NDVI on sample crops')
 hold on
 for k = 1:numObj
-    
-    s(k).mean = mean(double(s(k).PixelValues));
     if s(k).Area>20
+    s(k).mean = mean(double(s(k).PixelValues));
     text(s(k).Centroid(1),s(k).Centroid(2), ...
         sprintf('%2.5f', s(k).mean), ...
         'EdgeColor','b','Color','r');
@@ -447,7 +446,7 @@ hold off
 figure
 bar(1:numObj,[s.mean])
 xlabel('Region Label Number')
-ylabel('Man value of NDVI on sample crops')
+ylabel('Man valu')
 
 
 
