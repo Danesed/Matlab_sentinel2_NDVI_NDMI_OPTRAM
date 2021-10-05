@@ -292,8 +292,7 @@ temp=['3_NDVI_plot_',num2str(k),'.png'];
 saveas(gca,temp);
 end
 %}
-
-%% histogramma grafico media, crop ndvi, ndvi completo
+%% BARGRPH grafico media, crop ndvi, ndvi completo
 
 for k = 1 : length(B04files)
 
@@ -335,6 +334,28 @@ hold on;
 temp=['5_NDVI_hist_',num2str(k),'.png']; 
 saveas(gca,temp);
 end
+
+%% grafico andamento nel tempo
+
+%definisco valori medi nei campi
+for k = 1 : length(B04files)
+    fprintf('Now calculating mean value of NDVI and NDMI on crops \n');
+    NDVI_mean{k} = mean([props_list{k}.mean]);
+    %NDMI_mean{k} = mean(mean(NDMI_list_crop{k})); 
+end
+Y = cell2mat(NDVI_mean);
+X = datetime(Datelist, 'InputFormat', 'yyyyMMdd');
+
+%grafico andamento media
+figure('Position',[100 100 1250 450])
+A1 = axes('Position',[0.1 0.1 0.8 0.8]);
+plot(X,Y,'B--O');
+title('NDVI mean value over time')
+set(gca,'FontSize',14)
+axis auto tight
+hold on;
+temp=['6_NDVI_plot_overtime','.png']; 
+saveas(gca,temp);
 %% plot grafico media, crop ndmi, ndmi completo
 
 %{
