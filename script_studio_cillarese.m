@@ -227,7 +227,7 @@ end
 Y2 = cell2mat(NDMI_mean);
 
 % plot grafico media, crop ndmi, ndmi completo
-
+%{
 for k = 1 : length(B04files)
     
 figure('Position',[100 100 1650 450])
@@ -256,9 +256,11 @@ hold on;
 temp=['4_NDMI_plot_',num2str(k),'.png']; 
 saveas(gca,temp);
 end
+%}
 
 %%%%%%plot con istogramma
 
+%{
 % histogramma grafico media, crop ndvi, ndvi completo
 for k = 1 : length(B04files)
     
@@ -290,8 +292,10 @@ temp=['5_NDVI_hist_',num2str(k),'.png'];
 saveas(gca,temp);
 end
 
-% plot histogramma media, crop ndmi, ndmi completo
+%}
 
+% plot histogramma media, crop ndmi, ndmi completo
+%{
 for k = 1 : length(B04files)
     
 figure('Position',[100 100 1650 450])
@@ -324,6 +328,8 @@ hold on;
 temp=['6_NDMI_hist_',num2str(k),'.png']; 
 saveas(gca,temp);
 end
+%}
+
 
 fprintf('\n ____FINE____\n')
 
@@ -332,7 +338,7 @@ fprintf('\n ____FINE____\n')
 
 %%%%extra histogram
 % plot histogramma media, crop ndmi, ndmi completo
-
+%{
 for k = 1 : length(B04files)
     
 figure('Position',[100 100 1650 450])
@@ -366,6 +372,7 @@ hold on;
 temp=['6_NDMI_hist_',num2str(k),'.png']; 
 saveas(gca,temp);
 end
+%}
 
 %%%%extra segmentazione 
 
