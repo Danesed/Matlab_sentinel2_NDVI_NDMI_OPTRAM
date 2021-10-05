@@ -175,9 +175,6 @@ saveas(gca,temp);
  
 end
  
- 
- 
- 
 %% CROPPING ON CROPS
  
 for k = 1 : length(B04files)
@@ -186,17 +183,10 @@ for k = 1 : length(B04files)
     NDMI_list_crop{k} = NDMI_list{k}(1200:1550,450:750);
 end
  
- 
- 
- 
- 
- 
 %% segmentazione con centroidi
  
 %%% FOR media centroidi 
- 
 
- 
 for k = 1 : length(B04files)
 fprintf('Now masking and smoothing crops with NDVI over 0.5 \n');
 NDVI_list_crop_over05_logic{k} = (NDVI_list_crop{k})>0.5;
@@ -210,7 +200,6 @@ end
 
 %% media centroidi
 
-
 for k = 1 : length(B04files)
     figure
 s = regionprops(NDVI_list_crop_over05_logic_smooth{k},NDVI_list_crop_over05{k},{'Centroid','PixelValues','BoundingBox','Area'});
@@ -218,8 +207,6 @@ props_list{k}=s;
 numObj{k} = numel(s);
 imagesc(NDVI_list_crop_over05{k})
 colormap('gray')
- 
-%imshow(labeloverlay(Campo_crop_esempio,BWfinal))
  
 title('Mean value of NDVI on sample crops')
 hold on
@@ -245,22 +232,6 @@ end
 %%% fine media con centroidi
  
 
- 
-%% Montage Media
-
-%mean value of ndvi for cropped area
-%{
-for k = 1 : length(B04files)
-    fprintf('Now calculating mean value of NDVI and NDMI on crops \n');
-    NDVI_mean{k} = mean(mean(NDVI_list_crop{k}));
-    NDMI_mean{k} = mean(mean(NDMI_list_crop{k})); 
-end
- 
-%grafico andamento media
-Y = cell2mat(NDVI_mean);
-X = datetime(Datelist, 'InputFormat', 'yyyyMMdd');
- %}
- 
 %% plot grafico media, crop ndvi, ndvi completo
 %{
 for k = 1 : length(B04files)
@@ -335,7 +306,7 @@ temp=['5_NDVI_hist_',num2str(k),'.png'];
 saveas(gca,temp);
 end
 
-%% grafico andamento nel tempo
+%% calcolo i valori per l' andamento nel tempo
 
 %definisco valori medi nei campi
 for k = 1 : length(B04files)
@@ -345,6 +316,8 @@ for k = 1 : length(B04files)
 end
 Y = cell2mat(NDVI_mean);
 X = datetime(Datelist, 'InputFormat', 'yyyyMMdd');
+
+%% grafico andamento nel tempo
 
 %grafico andamento media
 figure('Position',[100 100 1250 450])
