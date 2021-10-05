@@ -379,9 +379,7 @@ end
 %}
 
 %%%%extra segmentazione 
-
-ndvi_mask = (NDVI_list{k})>0.8;
-Campo_esempio = ndvi_mask.*NDVI_list{k};
+%{
 
 ndvi_crop_mask = (NDVI_list_crop{4})>0.5;
 Campo_crop_esempio = ndvi_crop_mask.*NDVI_list_crop{4};
@@ -392,6 +390,9 @@ Campo_crop_esempio_smooth = imopen(Campo_crop_esempio,se);
 ndvi_crop_mask_smooth = imopen(ndvi_crop_mask,se);
 
 %imshow(Campo_crop_esempio_smooth,[]);
+%}
+
+%%%% maschera blu
 %{
 BWfinal = imerode(Campo_crop_esempio_smooth,se);
 BWfinal = imerode(BWfinal,se);
@@ -450,5 +451,41 @@ xlabel('Region Label Number')
 ylabel('Man value of NDVI on sample crops')
 
 
+%%%%% FOR media centroidi 
 
+
+for k = 1 : length(B04files)
+fprintf('Now masking and smoothing crops with NDVI over 0.5 \n');
+NDVI_list_crop_over05_logic{k} = (NDVI_list_crop{k})>0.5;
+NDVI_list_crop_over05{k} = NDVI_list_crop_over05_logic{k} .* NDVI_list_crop{k};
+
+%crea maschera oltre 5 pixel
+se = strel('square',5);
+NDVI_list_crop_over05_smooth{k} = imopen(NDVI_list_crop_over05_logic{k},se);
+NDVI_list_crop_over05_logic_smooth{k} = imopen(NDVI_list_crop_over05_logic{k},se);
+end
+
+
+for k = 1 : length(B04files)
+s = regionprops(NDVI_list_crop_over05_logic_smooth{k},NDVI_list_crop_over05{k},{'Centroid','PixelValues','BoundingBox','Area'});
+
+imshow(NDVI_list_crop_over05{k})
+%imshow(labeloverlay(Campo_crop_esempio,BWfinal))
+
+title('Mean value of NDVI on sample crops')
+hold on
+for k = 1:numObj
+    
+    s(k).mean = mean(double(s(k).PixelValues));
+    if s(k).Area>20
+    text(s(k).Centroid(1),s(k).Centroid(2), ...
+        sprintf('%2.5f', s(k).mean), ...
+        'EdgeColor','b','Color','r');
+    end
+end
+hold off
+end
+
+
+%%%%%
 toc
