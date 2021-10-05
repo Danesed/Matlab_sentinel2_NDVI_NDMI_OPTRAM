@@ -465,21 +465,39 @@ NDVI_list_crop_over05_smooth{k} = imopen(NDVI_list_crop_over05_logic{k},se);
 NDVI_list_crop_over05_logic_smooth{k} = imopen(NDVI_list_crop_over05_logic{k},se);
 end
 
-
+%%%maschera blu
+%{
 for k = 1 : length(B04files)
-s = regionprops(NDVI_list_crop_over05_logic_smooth{k},NDVI_list_crop_over05{k},{'Centroid','PixelValues','BoundingBox','Area'});
+figure
+NDVI_list_crop_mask{k} = imerode(Campo_crop_esempio_smooth,se);
+NDVI_list_crop_mask{k} = imerode(NDVI_list_crop_mask{k},se);
+NDVI_list_crop_mask{k} = imdilate(NDVI_list_crop_mask{k},se);
+NDVI_list_crop_mask{k} = imdilate(NDVI_list_crop_mask{k},se);
+NDVI_list_crop_mask{k} = NDVI_list_crop_mask{k}>0;
+imshow(labeloverlay(NDVI_list_crop_over05{k},NDVI_list_crop_mask{k}))
+title('Mask Over Original Image')
+end
+%}
+%%%
 
+%%%media centroidi
+for k = 1 : length(B04files)
+    figure
+s = regionprops(NDVI_list_crop_over05_logic_smooth{k},NDVI_list_crop_over05{k},{'Centroid','PixelValues','BoundingBox','Area'});
+props_list{k}=s;
+numObj{k} = numel(s);
 imshow(NDVI_list_crop_over05{k})
+
 %imshow(labeloverlay(Campo_crop_esempio,BWfinal))
 
 title('Mean value of NDVI on sample crops')
 hold on
-for k = 1:numObj
+for j = 1:numObj{k}
     
-    s(k).mean = mean(double(s(k).PixelValues));
-    if s(k).Area>20
-    text(s(k).Centroid(1),s(k).Centroid(2), ...
-        sprintf('%2.5f', s(k).mean), ...
+    props_list{k}(j).mean = mean(double(props_list{k}(j).PixelValues));
+    if props_list{k}(j).Area>20
+    text(props_list{k}(j).Centroid(1),props_list{k}(j).Centroid(2), ...
+        sprintf('%2.5f', props_list{k}(j).mean), ...
         'EdgeColor','b','Color','r');
     end
 end
@@ -487,5 +505,12 @@ hold off
 end
 
 
+%%%mostra media per ogni campo
+for k = 1 : length(B04files)
+figure
+bar(1:numObj{k},[props_list{k}.mean])
+xlabel('Region Label Number')
+ylabel('Man value of NDVI on sample crops')
+end
 %%%%%
 toc
