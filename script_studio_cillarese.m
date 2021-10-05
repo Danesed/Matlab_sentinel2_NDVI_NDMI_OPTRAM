@@ -195,6 +195,7 @@ end
  
 %%% FOR media centroidi 
  
+
  
 for k = 1 : length(B04files)
 fprintf('Now masking and smoothing crops with NDVI over 0.5 \n');
@@ -206,14 +207,17 @@ se = strel('square',5);
 NDVI_list_crop_over05_smooth{k} = imopen(NDVI_list_crop_over05_logic{k},se);
 NDVI_list_crop_over05_logic_smooth{k} = imopen(NDVI_list_crop_over05_logic{k},se);
 end
- 
-%%%media centroidi
+
+%% media centroidi
+
+
 for k = 1 : length(B04files)
     figure
 s = regionprops(NDVI_list_crop_over05_logic_smooth{k},NDVI_list_crop_over05{k},{'Centroid','PixelValues','BoundingBox','Area'});
 props_list{k}=s;
 numObj{k} = numel(s);
-imshow(NDVI_list_crop_over05{k})
+imagesc(NDVI_list_crop_over05{k})
+colormap('gray')
  
 %imshow(labeloverlay(Campo_crop_esempio,BWfinal))
  
@@ -240,47 +244,12 @@ ylabel('Man value of NDVI on sample crops')
 end
 %%% fine media con centroidi
  
-%% extra histogram
-% plot histogramma media, crop ndmi, ndmi completo
-%{
-for k = 1 : length(B04files)
-    
-figure('Position',[100 100 1650 450])
+
  
-A1 = axes('Position',[0.05 0.1 0.4 0.8]);
-[counts, grayLevels] = imhist(NDVI_list_crop{k}, 300);
-bar(grayLevels, counts, 'BarWidth', 0.95);
- 
-title('NDMI mean values')
-colormap(A1,'parula')
-set(gca,'FontSize',14)
-axis auto tight
-colorbar('location','southoutside','Ticks',[],'TickLabels',{''});
- 
- 
-A2 = axes('Position',[0.375 0.1 0.4 0.8]);
-imagesc(NDMI_list_crop{k},[-1 1])
-title(NDMI_mean(k))
-colormap(A2,'parula')
-set(gca,'FontSize',14)
-axis square tight, axis off
- 
-A3 = axes('Position',[0.625 0.1 0.4 0.8]);
-imagesc(NDMI_list{k},[-1 1])
-title(B04files(k).date)
-colormap(A3,'parula'), colorbar
-set(gca,'FontSize',14)
-axis square tight, axis off
- 
-hold on;
-temp=['6_NDMI_hist_',num2str(k),'.png']; 
-saveas(gca,temp);
-end
-%}
- 
-%% media vecchia
-%{
+%% Montage Media
+
 %mean value of ndvi for cropped area
+%{
 for k = 1 : length(B04files)
     fprintf('Now calculating mean value of NDVI and NDMI on crops \n');
     NDVI_mean{k} = mean(mean(NDVI_list_crop{k}));
@@ -290,9 +259,10 @@ end
 %grafico andamento media
 Y = cell2mat(NDVI_mean);
 X = datetime(Datelist, 'InputFormat', 'yyyyMMdd');
+ %}
  
- 
-% plot grafico media, crop ndvi, ndvi completo
+%% plot grafico media, crop ndvi, ndvi completo
+%{
 for k = 1 : length(B04files)
     
 figure('Position',[100 100 1650 450])
@@ -321,13 +291,57 @@ hold on;
 temp=['3_NDVI_plot_',num2str(k),'.png']; 
 saveas(gca,temp);
 end
+%}
+
+%% histogramma grafico media, crop ndvi, ndvi completo
+
+for k = 1 : length(B04files)
+
+figure('Position',[100 100 1650 450])
+
+A1 = axes('Position',[0.05 0.1 0.4 0.8]);
+bar(1:numObj{k},[props_list{k}.mean])
+ylim([0.5 1])
+xlabel('Crops Label Number')
+ylabel('NDVI mean values')
+title('NDVI mean values in sample crops')
+set(gca,'FontSize',14)
+
+
+A2 = axes('Position',[0.375 0.1 0.4 0.8]);
+imagesc(NDVI_list_crop{k},[0 1])
+title(B04files(k).date)
+colormap(A2,'turbo')
+set(gca,'FontSize',14)
+axis square tight, axis off
  
- 
+A3 = axes('Position',[0.625 0.1 0.4 0.8]);
+imagesc(NDVI_list_crop_over05{k},[0.5 1])
+title(mean([props_list{k}.mean]))
+colormap(A3,'gray'), colorbar
+set(gca,'FontSize',14)
+axis square tight, axis off
+hold on
+for j = 1:numObj{k}
+    props_list{k}(j).mean = mean(double(props_list{k}(j).PixelValues));
+    if props_list{k}(j).Area>20
+    text(props_list{k}(j).Centroid(1),props_list{k}(j).Centroid(2), ...
+        sprintf('%2.5f', props_list{k}(j).mean), ...
+        'EdgeColor','b','Color','r');
+    end
+end
+hold off
+hold on;
+temp=['5_NDVI_hist_',num2str(k),'.png']; 
+saveas(gca,temp);
+end
+%% plot grafico media, crop ndmi, ndmi completo
+
+%{
+
 %conversione per plotting
 Y2 = cell2mat(NDMI_mean);
- 
-% plot grafico media, crop ndmi, ndmi completo
-%{
+
 for k = 1 : length(B04files)
     
 figure('Position',[100 100 1650 450])
@@ -358,41 +372,9 @@ saveas(gca,temp);
 end
 %}
  
-%%%%%%plot con istogramma
+%% plot con istogramma
  
-%{
-% histogramma grafico media, crop ndvi, ndvi completo
-for k = 1 : length(B04files)
-    
-figure('Position',[100 100 1650 450])
-A1 = axes('Position',[0.05 0.1 0.4 0.8]);
-histogram(NDVI_list_crop{k},30,'FaceColor','auto')
-title('NDVI mean values')
-colormap(A1,'turbo')
-set(gca,'FontSize',14)
-axis auto tight
-colorbar('location','southoutside','Ticks',[],'TickLabels',{''})
- 
-A2 = axes('Position',[0.375 0.1 0.4 0.8]);
-imagesc(NDVI_list_crop{k},[0 1])
-title(NDVI_mean(k))
-colormap(A2,'turbo')
-set(gca,'FontSize',14)
-axis square tight, axis off
- 
-A3 = axes('Position',[0.625 0.1 0.4 0.8]);
-imagesc(NDVI_list{k},[0 1])
-title(B04files(k).date)
-colormap(A3,'turbo'), colorbar
-set(gca,'FontSize',14)
-axis square tight, axis off
- 
-hold on;
-temp=['5_NDVI_hist_',num2str(k),'.png']; 
-saveas(gca,temp);
-end
- 
-%}
+
  
 % plot histogramma media, crop ndmi, ndmi completo
 %{
@@ -432,6 +414,43 @@ end
  
 %}
  
+%% extra histogram
+% plot histogramma media, crop ndmi, ndmi completo
+%{
+for k = 1 : length(B04files)
+    
+figure('Position',[100 100 1650 450])
+ 
+A1 = axes('Position',[0.05 0.1 0.4 0.8]);
+[counts, grayLevels] = imhist(NDVI_list_crop{k}, 300);
+bar(grayLevels, counts, 'BarWidth', 0.95);
+ 
+title('NDMI mean values')
+colormap(A1,'parula')
+set(gca,'FontSize',14)
+axis auto tight
+colorbar('location','southoutside','Ticks',[],'TickLabels',{''});
+ 
+ 
+A2 = axes('Position',[0.375 0.1 0.4 0.8]);
+imagesc(NDMI_list_crop{k},[-1 1])
+title(NDMI_mean(k))
+colormap(A2,'parula')
+set(gca,'FontSize',14)
+axis square tight, axis off
+ 
+A3 = axes('Position',[0.625 0.1 0.4 0.8]);
+imagesc(NDMI_list{k},[-1 1])
+title(B04files(k).date)
+colormap(A3,'parula'), colorbar
+set(gca,'FontSize',14)
+axis square tight, axis off
+ 
+hold on;
+temp=['6_NDMI_hist_',num2str(k),'.png']; 
+saveas(gca,temp);
+end
+%}
 %%%%%
 %% fine
 fprintf('\n ____FINE____\n')
