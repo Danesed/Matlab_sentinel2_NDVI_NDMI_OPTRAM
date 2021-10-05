@@ -512,5 +512,6 @@ bar(1:numObj{k},[props_list{k}.mean])
 xlabel('Region Label Number')
 ylabel('Man value of NDVI on sample crops')
 end
+
 %%%%%
 toc
