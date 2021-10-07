@@ -403,7 +403,7 @@ hold on;
 end
 
 plot(X,Y2,'B--O','LineWidth',5);
-title('NDVI mean value over time')
+title('NDMI mean value over time')
 set(gca,'FontSize',14)
 axis auto tight
 hold on;
