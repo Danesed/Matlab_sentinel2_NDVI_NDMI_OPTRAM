@@ -222,11 +222,11 @@ for k = 1 : length(B04files)
 s = regionprops(NDVI_list_crop_over05_logic_smooth{k},NDVI_list_crop_over05{k},{'Centroid','PixelValues','BoundingBox','Area'});
 props_list{k}=s;
 numObj{k} = numel(s);
-imagesc(NDVI_list_crop_over05{k})
-colormap('gray')
+%imagesc(NDVI_list_crop_over05{k})
+%colormap('gray')
  
-title('Mean value of NDVI on sample crops')
-hold on
+%title('Mean value of NDVI on sample crops')
+%hold on
 for j = 1:numObj{k}
     
     props_list{k}(j).mean = mean(double(props_list{k}(j).PixelValues));
@@ -236,7 +236,7 @@ for j = 1:numObj{k}
         'EdgeColor','b','Color','r');
     end
 end
-hold off
+%hold off
 end
  
 %{
@@ -257,11 +257,11 @@ for k = 1 : length(B04files)
 s_under = regionprops(NDVI_list_crop_under05_logic_smooth{k},NDVI_list_crop_under05{k},{'Centroid','PixelValues','BoundingBox','Area'});
 props_list_under{k}=s_under;
 numObj_under{k} = numel(s_under);
-imagesc(NDVI_list_crop_under05{k})
-colormap('gray')
+%imagesc(NDVI_list_crop_under05{k})
+%colormap('gray')
  
-title('Mean value of NDVI under 0.5 on sample crops')
-hold on
+%title('Mean value of NDVI under 0.5 on sample crops')
+%hold on
 for j = 1:numObj_under{k}
     
     props_list_under{k}(j).mean = mean(double(props_list_under{k}(j).PixelValues));
@@ -271,7 +271,7 @@ for j = 1:numObj_under{k}
         'EdgeColor','b','Color','r');
     end
 end
-hold off
+%hold off
 end
 %% media centroidi NDMI 
 
@@ -309,8 +309,8 @@ end
 
 %%% fine media con centroidi ndmi
 
-%% BARGRPH grafico media, crop ndvi, ndvi completo
-
+%% BARGRPH grafico media, crop ndvi, ndvi completo over
+%{
 for k = 1 : length(B04files)
 
 figure('Position',[100 100 1650 450])
@@ -351,9 +351,9 @@ hold on;
 temp=['3_NDVI_bar_',num2str(k),'.png']; 
 saveas(gca,temp);
 end
-
+%}
 %% BARGRPH grafico media, crop ndvi, ndvi completo under 0.5
-
+%{
 for k = 1 : length(B04files)
 
 figure('Position',[100 100 1650 450])
@@ -394,11 +394,11 @@ hold on;
 temp=['3_under_NDVI_bar_',num2str(k),'.png']; 
 saveas(gca,temp);
 end
+%}
 %% unione ndvi over under
 for k = 1 : length(B04files)
 numObj_total{k} = numObj{k}+numObj_under{k}; %concatenate num obj over and under 0.5
 props_list_total{k} = cat(1,props_list{k},props_list_under{k});
-
 end
 
 %% BARGRPH grafico media, crop ndvi, ndvi completo TOTAL under e over 0.5
@@ -444,7 +444,8 @@ temp=['3_total_NDVI_bar_',num2str(k),'.png'];
 saveas(gca,temp);
 end
 %% BARGRPH grafico media, crop ndvi, ndvi completo unito
-
+% DA CANCELLARE?
+%{ 
 for k = 1 : length(B04files)
 
 figure('Position',[100 100 1650 450])
@@ -485,6 +486,7 @@ hold on;
 temp=['3_total_NDVI_bar_',num2str(k),'.png']; 
 saveas(gca,temp);
 end
+%}
 %% BARGRPH grafico media, crop NDMI, NDMI completo
 
 for k = 1 : length(B04files)
