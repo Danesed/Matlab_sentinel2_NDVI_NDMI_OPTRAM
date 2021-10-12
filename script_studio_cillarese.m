@@ -396,8 +396,19 @@ saveas(gca,temp);
 end
 %% unione ndvi over under
 for k = 1 : length(B04files)
-numObj_total = [numObj,numObj_under]; %concatenate num obj over and under 0.5
+numObj_total{k} = numObj{k}+numObj_under{k} %concatenate num obj over and under 0.5
 props_list_total = [props_list,props_list_under];
+end
+%% unione ndvi over under
+for k = 1 : length(B04files)
+props_list_total{k} = [props_list{k},props_list_under{k}];
+end
+
+f = fieldnames(props_list{k});
+for k = 1 : length(B04files)
+ for i = 1:length(f)
+    props_list_total{k}.(f{i}) = [props_listl{k}.(f{i}), props_list_under.(f{i})];
+ end
 end
 %% BARGRPH grafico media, crop ndvi, ndvi completo unito
 
