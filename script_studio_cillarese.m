@@ -199,6 +199,21 @@ se = strel('square',5);
 NDVI_list_crop_over05_logic_smooth{k} = imopen(NDVI_list_crop_over05_logic{k},se);
 end
 
+%% segmentazione con centroidi under 0.5
+ 
+%%% Masking and smoothing crops with NDVI under 0.5 and NDVI for given crops
+
+for k = 1 : length(B04files)
+fprintf('Now masking and smoothing crops with NDVI under 0.5 \n');
+NDVI_list_crop_under05_logic{k} = (NDVI_list_crop{k})<0.5;
+NDVI_list_crop_under05{k} = NDVI_list_crop_under05_logic{k} .* NDVI_list_crop{k};
+NDMI_list_crop_under05{k} = NDVI_list_crop_under05_logic{k} .* NDMI_list_crop{k}; % using the same mask for NDMI
+
+ 
+%crea maschera oltre 5 pixel
+se = strel('square',5);
+NDVI_list_crop_under05_logic_smooth{k} = imopen(NDVI_list_crop_under05_logic{k},se);
+end
 
 %% media centroidi NDVI
 
@@ -235,7 +250,29 @@ end
 %}
 %%% fine media con centroidi con ndvi
 
+%% media centroidi NDVI under 0.5
 
+for k = 1 : length(B04files)
+    figure
+s_under = regionprops(NDVI_list_crop_under05_logic_smooth{k},NDVI_list_crop_under05{k},{'Centroid','PixelValues','BoundingBox','Area'});
+props_list_under{k}=s_under;
+numObj_under{k} = numel(s_under);
+imagesc(NDVI_list_crop_under05{k})
+colormap('gray')
+ 
+title('Mean value of NDVI under 0.5 on sample crops')
+hold on
+for j = 1:numObj_under{k}
+    
+    props_list_under{k}(j).mean = mean(double(props_list_under{k}(j).PixelValues));
+    if props_list_under{k}(j).Area>20
+    text(props_list_under{k}(j).Centroid(1),props_list_under{k}(j).Centroid(2), ...
+        sprintf('%2.5f', props_list_under{k}(j).mean), ...
+        'EdgeColor','b','Color','r');
+    end
+end
+hold off
+end
 %% media centroidi NDMI 
 
 for k = 1 : length(B04files)
@@ -315,6 +352,95 @@ temp=['3_NDVI_bar_',num2str(k),'.png'];
 saveas(gca,temp);
 end
 
+%% BARGRPH grafico media, crop ndvi, ndvi completo under 0.5
+
+for k = 1 : length(B04files)
+
+figure('Position',[100 100 1650 450])
+
+A1 = axes('Position',[0.05 0.1 0.4 0.8]);
+bar(1:numObj_under{k},[props_list_under{k}.mean])
+ylim([0 0.5 ])
+xlabel('Crops Label Number')
+ylabel('NDVI mean values')
+title('NDVI under 0.5 mean values in sample crops')
+set(gca,'FontSize',14)
+
+
+A2 = axes('Position',[0.375 0.1 0.4 0.8]);
+imagesc(NDVI_list_crop{k},[0 1])
+title(B04files(k).date)
+colormap(A2,'turbo')
+set(gca,'FontSize',14)
+axis square tight, axis off
+ 
+A3 = axes('Position',[0.625 0.1 0.4 0.8]);
+imagesc(NDVI_list_crop_under05{k},[0 0.5 ])
+title(mean([props_list_under{k}.mean]))
+colormap(A3,'gray'), colorbar
+set(gca,'FontSize',14)
+axis square tight, axis off
+hold on
+for j = 1:numObj_under{k}
+    props_list_under{k}(j).mean = mean(double(props_list_under{k}(j).PixelValues));
+    if props_list_under{k}(j).Area>20
+    text(props_list_under{k}(j).Centroid(1),props_list_under{k}(j).Centroid(2), ...
+        sprintf('%2.5f', props_list_under{k}(j).mean), ...
+        'EdgeColor','b','Color','r');
+    end
+end
+hold off
+hold on;
+temp=['3_under_NDVI_bar_',num2str(k),'.png']; 
+saveas(gca,temp);
+end
+%% unione ndvi over under
+for k = 1 : length(B04files)
+numObj_total = [numObj,numObj_under]; %concatenate num obj over and under 0.5
+props_list_total = [props_list,props_list_under];
+end
+%% BARGRPH grafico media, crop ndvi, ndvi completo unito
+
+for k = 1 : length(B04files)
+
+figure('Position',[100 100 1650 450])
+
+A1 = axes('Position',[0.05 0.1 0.4 0.8]);
+bar(1:numObj_total{k},[props_list_total{k}.mean])
+ylim([0 1 ])
+xlabel('Crops Label Number')
+ylabel('NDVI mean values')
+title('NDVI total mean values in sample crops')
+set(gca,'FontSize',14)
+
+
+A2 = axes('Position',[0.375 0.1 0.4 0.8]);
+imagesc(NDVI_list_crop{k},[0 1])
+title(B04files(k).date)
+colormap(A2,'turbo')
+set(gca,'FontSize',14)
+axis square tight, axis off
+ 
+A3 = axes('Position',[0.625 0.1 0.4 0.8]);
+imagesc(NDVI_list_crop{k},[0 1 ])
+title(mean([props_list_total{k}.mean]))
+colormap(A3,'gray'), colorbar
+set(gca,'FontSize',14)
+axis square tight, axis off
+hold on
+for j = 1:numObj_total{k}
+    props_list_total{k}(j).mean = mean(double(props_list_total{k}(j).PixelValues));
+    if props_list_total{k}(j).Area>20
+    text(props_list_total{k}(j).Centroid(1),props_list_total{k}(j).Centroid(2), ...
+        sprintf('%2.5f', props_list_total{k}(j).mean), ...
+        'EdgeColor','b','Color','r');
+    end
+end
+hold off
+hold on;
+temp=['3_total_NDVI_bar_',num2str(k),'.png']; 
+saveas(gca,temp);
+end
 %% BARGRPH grafico media, crop NDMI, NDMI completo
 
 for k = 1 : length(B04files)
