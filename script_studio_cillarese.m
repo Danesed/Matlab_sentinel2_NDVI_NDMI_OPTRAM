@@ -440,7 +440,7 @@ bar(1:numObj_total{k},[props_list_total{k}.mean])
 ylim([0 1 ])
 xlabel('Crops Label Number')
 ylabel('NDVI mean values')
-title('NDVI total over under 0.5 mean values in sample crops')
+title('NDVI mean values in sample crops')
 set(gca,'FontSize',14)
 
 
@@ -571,7 +571,7 @@ bar(1:numObj_2_total{k},[props_list_2_total{k}.mean])
 ylim([-1 1])
 xlabel('Crops Label Number')
 ylabel('NDMI mean values')
-title('NDMI TOTAL mean values in sample crops')
+title('NDMI mean values in sample crops')
 set(gca,'FontSize',14)
 
 A2 = axes('Position',[0.375 0.1 0.4 0.8]);
