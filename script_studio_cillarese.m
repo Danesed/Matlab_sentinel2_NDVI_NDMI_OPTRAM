@@ -396,24 +396,52 @@ saveas(gca,temp);
 end
 %% unione ndvi over under
 for k = 1 : length(B04files)
-numObj_total{k} = numObj{k}+numObj_under{k} %concatenate num obj over and under 0.5
-props_list_total = [props_list,props_list_under];
-end
-
-for k = 1 : length(B04files)
+numObj_total{k} = numObj{k}+numObj_under{k}; %concatenate num obj over and under 0.5
 props_list_total{k} = cat(1,props_list{k},props_list_under{k});
 
 end
-%% unione ndvi over under
-for k = 1 : length(B04files)
-props_list_total{k} = [props_list{k},props_list_under{k}];
-end
 
-f = fieldnames(props_list{k});
+%% BARGRPH grafico media, crop ndvi, ndvi completo TOTAL under e over 0.5
+
 for k = 1 : length(B04files)
- for i = 1:length(f)
-    props_list_total{k}.(f{i}) = [props_listl{k}.(f{i}), props_list_under.(f{i})];
- end
+
+figure('Position',[100 100 1650 450])
+
+A1 = axes('Position',[0.05 0.1 0.4 0.8]);
+bar(1:numObj_total{k},[props_list_total{k}.mean])
+ylim([0 1 ])
+xlabel('Crops Label Number')
+ylabel('NDVI mean values')
+title('NDVI total over under 0.5 mean values in sample crops')
+set(gca,'FontSize',14)
+
+
+A2 = axes('Position',[0.375 0.1 0.4 0.8]);
+imagesc(NDVI_list_crop{k},[0 1])
+title(B04files(k).date)
+colormap(A2,'turbo')
+set(gca,'FontSize',14)
+axis square tight, axis off
+ 
+A3 = axes('Position',[0.625 0.1 0.4 0.8]);
+imagesc(NDVI_list_crop{k},[0 1 ])
+title(mean([props_list_total{k}.mean]))
+colormap(A3,'gray'), colorbar
+set(gca,'FontSize',14)
+axis square tight, axis off
+hold on
+for j = 1:numObj_total{k}
+    props_list_total{k}(j).mean = mean(double(props_list_total{k}(j).PixelValues));
+    if props_list_total{k}(j).Area>20
+    text(props_list_total{k}(j).Centroid(1),props_list_total{k}(j).Centroid(2), ...
+        sprintf('%2.5f', props_list_total{k}(j).mean), ...
+        'EdgeColor','b','Color','r');
+    end
+end
+hold off
+hold on;
+temp=['3_total_NDVI_bar_',num2str(k),'.png']; 
+saveas(gca,temp);
 end
 %% BARGRPH grafico media, crop ndvi, ndvi completo unito
 
