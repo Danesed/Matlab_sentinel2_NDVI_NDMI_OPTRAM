@@ -1,4 +1,8 @@
 tic
+
+cropmask = imread('/Users/danilod/Documents/MATLAB/TVA/Cillarese immagini/test/crops_mask_ps.png');
+cropmask = cropmask > 1;
+cropmask = imcomplement(cropmask);
 %% Lettura files
 % B04 FILES
 B04Pattern = fullfile('/Users/danilod/Documents/MATLAB/TVA/Cillarese immagini/test/B04S/*.jp2'); % Change to whatever pattern you need.
@@ -94,7 +98,7 @@ for k = 1 : length(B11files)
 end
  
 %% filtro il mare, usando banda B08
- 
+
 for k = 1 : length(B08files)
     fprintf('Now masking out water \n');
     Sea_Mask_list{k} = (B08list{k}>1400);
@@ -102,7 +106,6 @@ for k = 1 : length(B08files)
     NDMI_list{k} = (NDMI_list{k}.*Sea_Mask_list{k});
 end
 fprintf('\n')
- 
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  
@@ -183,62 +186,29 @@ for k = 1 : length(B04files)
     NDMI_list_crop{k} = NDMI_list{k}(1200:1550,450:750);
 end
  
-%% segmentazione con centroidi
- 
-%%% Masking and smoothing crops with NDVI over 0.5 and NDVI for given crops
+
+%% media centroidi NDVI PNG
 
 for k = 1 : length(B04files)
-fprintf('Now masking and smoothing crops with NDVI over 0.5 \n');
-NDVI_list_crop_over05_logic{k} = (NDVI_list_crop{k})>0.5;
-NDVI_list_crop_over05{k} = NDVI_list_crop_over05_logic{k} .* NDVI_list_crop{k};
-NDMI_list_crop_over05{k} = NDVI_list_crop_over05_logic{k} .* NDMI_list_crop{k}; % using the same mask for NDMI
-
- 
-%crea maschera oltre 5 pixel
-se = strel('square',5);
-NDVI_list_crop_over05_logic_smooth{k} = imopen(NDVI_list_crop_over05_logic{k},se);
-end
-
-%% segmentazione con centroidi under 0.5
- 
-%%% Masking and smoothing crops with NDVI under 0.5 and NDVI for given crops
-
-for k = 1 : length(B04files)
-fprintf('Now masking and smoothing crops with NDVI under 0.5 \n');
-NDVI_list_crop_under05_logic{k} = (NDVI_list_crop{k})<0.5;
-NDVI_list_crop_under05{k} = NDVI_list_crop_under05_logic{k} .* NDVI_list_crop{k};
-NDMI_list_crop_under05{k} = NDVI_list_crop_under05_logic{k} .* NDMI_list_crop{k}; % using the same mask for NDMI
-
- 
-%crea maschera oltre 5 pixel
-se = strel('square',5);
-NDVI_list_crop_under05_logic_smooth{k} = imopen(NDVI_list_crop_under05_logic{k},se);
-end
-
-%% media centroidi NDVI over 05
-
-for k = 1 : length(B04files)
-   % figure
-s = regionprops(NDVI_list_crop_over05_logic_smooth{k},NDVI_list_crop_over05{k},{'Centroid','PixelValues','BoundingBox','Area'});
+ %   figure
+s = regionprops(cropmask(:,:,1),NDVI_list_crop{k},{'Centroid','PixelValues','BoundingBox','Area'});
 props_list{k}=s;
 numObj{k} = numel(s);
-%imagesc(NDVI_list_crop_over05{k})
-%colormap('gray')
+imagesc(NDVI_list_crop{k})
+colormap('gray')
  
-%title('Mean value of NDVI on sample crops')
-%hold on
+title('Mean value of NDVI on sample crops')
+hold on
 for j = 1:numObj{k}
     
     props_list{k}(j).mean = mean(double(props_list{k}(j).PixelValues));
-   %{
-    if props_list{k}(j).Area>20
-    text(props_list{k}(j).Centroid(1),props_list{k}(j).Centroid(2), ...
-        sprintf('%2.5f', props_list{k}(j).mean), ...
-        'EdgeColor','b','Color','r');
-    end
-    %}
+   
+  %  text(props_list{k}(j).Centroid(1),props_list{k}(j).Centroid(2), ...
+  %      sprintf('%2.5f', props_list{k}(j).mean), ...
+  %      'EdgeColor','b','Color','r');
+    
 end
-%hold off
+hold off
 end
  
 %{
@@ -252,114 +222,40 @@ end
 %}
 %%% fine media con centroidi con ndvi
 
-%% media centroidi NDVI under 0.5
+%% media centroidi NDMI PNG
 
 for k = 1 : length(B04files)
-   % figure
-s_under = regionprops(NDVI_list_crop_under05_logic_smooth{k},NDVI_list_crop_under05{k},{'Centroid','PixelValues','BoundingBox','Area'});
-props_list_under{k}=s_under;
-numObj_under{k} = numel(s_under);
-%imagesc(NDVI_list_crop_under05{k})
-%colormap('gray')
- 
-%title('Mean value of NDVI under 0.5 on sample crops')
-%hold on
-for j = 1:numObj_under{k}
-    
-    props_list_under{k}(j).mean = mean(double(props_list_under{k}(j).PixelValues));
-    %{
-    if props_list_under{k}(j).Area>20
-    text(props_list_under{k}(j).Centroid(1),props_list_under{k}(j).Centroid(2), ...
-        sprintf('%2.5f', props_list_under{k}(j).mean), ...
-        'EdgeColor','b','Color','r');
-    end
-    %}
-end
-%hold off
-end
-%% media centroidi NDMI OVER 05
-
-for k = 1 : length(B04files)
-    %figure
-s2 = regionprops(NDVI_list_crop_over05_logic_smooth{k},NDMI_list_crop_over05{k},{'Centroid','PixelValues','BoundingBox','Area'});
+%    figure
+s2 = regionprops(cropmask,NDMI_list_crop{k},{'Centroid','PixelValues','BoundingBox','Area'});
 props_list_2{k}=s2;
 numObj_2{k} = numel(s2);
-%imagesc(NDMI_list_crop_over05{k})
-%colormap('gray')
+imagesc(NDMI_list_crop{k})
+colormap('gray')
  
-%title('Mean value of NDMI on sample crops')
-%hold on
+title('Mean value of NDMI on sample crops')
+hold on
 for j = 1:numObj_2{k}
     
     props_list_2{k}(j).mean = mean(double(props_list_2{k}(j).PixelValues));
-   %{
-    if props_list_2{k}(j).Area>20
-    text(props_list_2{k}(j).Centroid(1),props_list_2{k}(j).Centroid(2), ...
-        sprintf('%2.5f', props_list_2{k}(j).mean), ...
-        'EdgeColor','b','Color','r');
-    end
-    %}
-end
-%hold off
-end
- 
-%%%mostra media per ogni campo
-%{
-for k = 1 : length(B04files)
-figure
-bar(1:numObj_2{k},[props_list_2{k}.mean])
-xlabel('Region Label Number')
-ylabel('Man value of NDMI on sample crops')
-end
-%}
 
-%% media centroidi NDMI UNDER 05
+%    text(props_list_2{k}(j).Centroid(1),props_list_2{k}(j).Centroid(2), ...
+ %       sprintf('%2.5f', props_list_2{k}(j).mean), ...
+  %      'EdgeColor','b','Color','r');
 
-for k = 1 : length(B04files)
-   % figure
-s2_under = regionprops(NDVI_list_crop_under05_logic_smooth{k},NDMI_list_crop_under05{k},{'Centroid','PixelValues','BoundingBox','Area'});
-props_list_2_under{k}=s2_under ;
-numObj_2_under {k} = numel(s2_under);
-%imagesc(NDMI_list_crop{k})
-%colormap('gray')
- 
-%title('Mean value of NDMI on sample crops')
-%hold on
-for j = 1:numObj_2_under{k}
-    
-    props_list_2_under{k}(j).mean = mean(double(props_list_2_under{k}(j).PixelValues));
-    %{
-    if props_list_2_under{k}(j).Area>20
-    text(props_list_2_under{k}(j).Centroid(1),props_list_2_under{k}(j).Centroid(2), ...
-        sprintf('%2.5f', props_list_2_under{k}(j).mean), ...
-        'EdgeColor','b','Color','r');
-    end
-    %}
-end
-%hold off
-end
-
-%%% fine media con centroidi ndmi
-
-
-%% unione NDVI e NDMI over under 0.5
-for k = 1 : length(B04files)
-numObj_total{k} = numObj{k}+numObj_under{k}; %concatenate num obj over and under 0.5
-props_list_total{k} = cat(1,props_list{k},props_list_under{k});
-
-numObj_2_total{k} = numObj_2{k}+numObj_2_under{k}; %concatenate num obj over and under 0.5
-props_list_2_total{k} = cat(1,props_list_2{k},props_list_2_under{k});
 
 end
+hold off
+end
 
-%% BARGRPH grafico media, crop ndvi, ndvi completo TOTAL under e over 0.5
+%% BARGRPH grafico media, crop ndvi, ndvi completo PNG
+
 
 for k = 1 : length(B04files)
 
 figure('Position',[100 100 1650 450])
 
 A1 = axes('Position',[0.05 0.1 0.4 0.8]);
-bar(1:numObj_total{k},[props_list_total{k}.mean])
+bar(1:numObj{k},[props_list{k}.mean])
 ylim([0 1 ])
 xlabel('Crops Label Number')
 ylabel('NDVI mean values')
@@ -376,22 +272,22 @@ axis square tight, axis off
  
 A3 = axes('Position',[0.650 0.1 0.4 0.8]);
 imagesc(NDVI_list_crop{k},[0 1 ])
-title(['NDVI mean value in this area: ' num2str( mean([props_list_total{k}.mean]))])
+title(['NDVI mean value in this area: ' num2str( mean([props_list{k}.mean]))])
 colormap(A3,'gray'), colorbar
 set(gca,'FontSize',14)
 axis square tight, axis off
 hold on
-for j = 1:numObj_total{k}
-    props_list_total{k}(j).mean = mean(double(props_list_total{k}(j).PixelValues));
-    if props_list_total{k}(j).Area>20
-    text(props_list_total{k}(j).Centroid(1),props_list_total{k}(j).Centroid(2), ...
-        sprintf('%2.5f', props_list_total{k}(j).mean), ...
+for j = 1:numObj{k}
+    props_list{k}(j).mean = mean(double(props_list{k}(j).PixelValues));
+    if props_list{k}(j).Area>20
+    text(props_list{k}(j).Centroid(1),props_list{k}(j).Centroid(2), ...
+        sprintf('%2.5f', props_list{k}(j).mean), ...
         'EdgeColor','b','Color','r');
     end
 end
 hold off
 hold on;
-temp=['3_total_NDVI_bar_',num2str(k),'.png']; 
+temp=['3_total_NDVI_bar_mask',num2str(k),'.png']; 
 saveas(gca,temp);
 end
 
@@ -402,7 +298,7 @@ for k = 1 : length(B04files)
 figure('Position',[100 100 1650 450])
 
 A1 = axes('Position',[0.05 0.1 0.4 0.8]);
-bar(1:numObj_2_total{k},[props_list_2_total{k}.mean])
+bar(1:numObj_2{k},[props_list_2{k}.mean])
 ylim([-1 1])
 xlabel('Crops Label Number')
 ylabel('NDMI mean values')
@@ -417,34 +313,35 @@ set(gca,'FontSize',14)
 axis square tight, axis off
  
 A3 = axes('Position',[0.650 0.1 0.4 0.8]);
-imagesc(NDMI_list_crop_over05{k},[-1 1])
-title(['NDMI mean value in this area: ' num2str(mean([props_list_2_total{k}.mean]))])
+imagesc(NDMI_list_crop{k},[-1 1])
+title(['NDMI mean value in this area: ' num2str(mean([props_list_2{k}.mean]))])
 colormap(A3,'gray'), colorbar
 set(gca,'FontSize',14)
 axis square tight, axis off
 hold on
-for j = 1:numObj_2_total{k}
-    props_list_2_total{k}(j).mean = mean(double(props_list_2_total{k}(j).PixelValues));
-    if props_list_2_total{k}(j).Area>20
-    text(props_list_2_total{k}(j).Centroid(1),props_list_2_total{k}(j).Centroid(2), ...
-        sprintf('%2.5f', props_list_2_total{k}(j).mean), ...
+for j = 1:numObj_2{k}
+    props_list_2{k}(j).mean = mean(double(props_list_2{k}(j).PixelValues));
+    if props_list_2{k}(j).Area>20
+    text(props_list_2{k}(j).Centroid(1),props_list_2{k}(j).Centroid(2), ...
+        sprintf('%2.5f', props_list_2{k}(j).mean), ...
         'EdgeColor','b','Color','r');
     end
 end
 hold off
 hold on;
-temp=['4_TOTAL_NDMI_bar_',num2str(k),'.png']; 
+temp=['4_TOTAL_NDMI_bar_mask_',num2str(k),'.png']; 
 saveas(gca,temp);
 end
+
 %% calcolo i valori per l' andamento nel tempo
 
 %definisco valori medi nei campi
 for k = 1 : length(B04files)
     fprintf('Now calculating mean value of NDVI and NDMI on crops \n');
-    NDVI_mean{k} = mean([props_list_total{k}.mean]);
-    NDMI_mean{k} = mean([props_list_2_total{k}.mean]); 
-    NDVI_crops_values{k}=(props_list_total{k}.PixelValues); %lista dei valori dei pixel per ogni campo per plotting
-    NDMI_crops_values{k}=(props_list_2_total{k}.PixelValues);
+    NDVI_mean{k} = mean([props_list{k}.mean]);
+    NDMI_mean{k} = mean([props_list_2{k}.mean]); 
+    NDVI_crops_values{k}=(props_list{k}.PixelValues); %lista dei valori dei pixel per ogni campo per plotting
+    NDMI_crops_values{k}=(props_list_2{k}.PixelValues);
 end
 
 Y = cell2mat(NDVI_mean);
@@ -470,6 +367,7 @@ hold on;
 
 temp=['5_NDVI_plot_overtime','.png']; 
 saveas(gca,temp);
+
 %% grafico andamento nel tempo NDMI
 
 %grafico andamento media
@@ -494,3 +392,45 @@ saveas(gca,temp);
 %% fine
 fprintf('\n ____FINE____\n')
 toc
+%% extra NDBI
+
+%% calcolo ndBi
+ 
+for k = 1 : length(B04files)
+    fprintf('Now calculating NDBI %s\n',B04files(k).name);
+    NDBI_list{k} = (B11list{k}-B08list{k})./(B08list{k}+B11list{k});
+    NDBI_list_crop{k} = NDBI_list{k}(1200:1550,450:750);
+end
+
+fprintf('\n')
+%% CLIPPING ON CROPS all bands
+ 
+for k = 1 : length(B04files)
+    fprintf('Now clipping ALL BANDS on sample crops \n');
+    B04_list_crop{k} = B04list{k}(1200:1550,450:750);
+    B08_list_crop{k} = B08list{k}(1200:1550,450:750);
+    B11_list_crop{k} = B11list{k}(1200:1550,450:750);
+end
+
+%% sum of canny on all bands for each day
+ 
+for k = 1 : length(B04files)
+    fprintf('Now edge ALL BANDS on sample crops \n');
+    B04_list_crop_edge{k} = edge(B04_list_crop{k},'Canny',0.1);
+    B08_list_crop_edge{k} = edge(B08_list_crop{k},'Canny',0.1);
+    B11_list_crop_edge{k} = edge(B11_list_crop{k},'Canny',0.1);
+end
+
+for k = 1 : length(B04files)
+    fprintf('Now summing ALL edge on sample crops \n');
+    edge_lists{k} = (B04_list_crop_edge{k} + B08_list_crop_edge{k} + B11_list_crop_edge{k});
+
+end
+
+edge_MASK = edge_lists{1}>500;
+
+for k = 1 : length(B04files)
+    fprintf('Now summing ALL edge on ONE sample crops \n');
+    edge_MASK = edge_MASK + edge_lists{k};
+
+end
