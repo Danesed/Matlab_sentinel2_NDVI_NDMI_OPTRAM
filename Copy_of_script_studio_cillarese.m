@@ -406,22 +406,54 @@ temp=['4_TOTAL_NDMI_bar_mask_',num2str(k),'.png'];
 saveas(gca,temp);
 end
 
-%% calcolo i valori per l' andamento nel tempo
 
-%definisco valori medi nei campi
+
+
+%% Calcolo valori NDVI e NDMI nel tempo
+
+fprintf('\nNow calculating weighted mean value of NDVI and NDMI on crops \n');
+
+area_sum =0;
+area_sum2 =0;
+    for j = 1:numObj{1}
+       area_sum = area_sum + props_list{1}(j).Area;
+       area_sum2 = area_sum2 + props_list_2{1}(j).Area;
+    end
+    
 for k = 1 : length(B04files)
-    fprintf('Now calculating mean value of NDVI and NDMI on crops \n');
-    NDVI_mean{k} = mean([props_list{k}.mean]);
-    NDMI_mean{k} = mean([props_list_2{k}.mean]); 
-    NDVI_crops_values{k}=(props_list{k}.PixelValues); %lista dei valori dei pixel per ogni campo per plotting
-    NDMI_crops_values{k}=(props_list_2{k}.PixelValues);
+    for j = 1:numObj{k}
+        props_list{k}(j).w_mean = ((props_list{k}(j).mean) * (props_list{k}(j).Area)) / area_sum;
+        props_list_2{k}(j).w_mean = ((props_list_2{k}(j).mean) * (props_list_2{k}(j).Area)) / area_sum2;
+    end
 end
+
+%%media pesata
+for k = 1 : length(B04files)
+    NDVI_mean{k}=0;
+    NDMI_mean{k}=0;
+    for j = 1:numObj{k}
+        NDVI_mean{k} =  NDVI_mean{k} + props_list{k}(j).w_mean ;
+        NDMI_mean{k} =  NDMI_mean{k} + props_list_2{k}(j).w_mean ;
+    end
+end
+
+%plottini tondi
+for k = 1 : length(B04files)
+    NDVI_crops_values{k}=0;
+    NDMI_crops_values{k}=0;
+    for j = 1:numObj{k}
+        NDVI_crops_values{k}(j) = props_list{k}(j).mean ;
+        NDMI_crops_values{k}(j) = props_list_2{k}(j).mean ;
+    end
+end
+%% calcolo i valori per l' andamento nel tempo MEDIA PESATA
+
 
 Y = cell2mat(NDVI_mean);
 Y2 = cell2mat(NDMI_mean);
 X = datetime(Datelist, 'InputFormat', 'yyyyMMdd');
 
-%% grafico andamento nel tempo NDVI
+%% grafico andamento nel tempo NDVI MEDIA PESATA
 
 %grafico andamento media
 figure('Position',[100 100 1250 450])
@@ -438,7 +470,7 @@ set(gca,'FontSize',14)
 axis auto tight
 hold on;
 
-temp=['5_NDVI_plot_overtime','.png']; 
+temp=['5b_NDVI_WEIGHTED_plot_overtime','.png']; 
 saveas(gca,temp);
 
 %% grafico andamento nel tempo NDMI
@@ -459,7 +491,7 @@ set(gca,'FontSize',14)
 axis auto tight
 hold on;
 
-temp=['6_NDMI_plot_overtime','.png']; 
+temp=['6b_NDMI_WEIGHTED_plot_overtime','.png']; 
 saveas(gca,temp);
 
 %% fine
