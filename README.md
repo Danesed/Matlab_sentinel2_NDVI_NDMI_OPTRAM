@@ -1188,30 +1188,30 @@ end
 
 
 
-![alt_text](images/image42.png "image_tooltip")
+![alt_text](images/image57.png "image_tooltip")
+
+
+![alt_text](images/image56.png "image_tooltip")
+
+
+
+
+![alt_text](images/image31.png "image_tooltip")
+
+
+
+
+![alt_text](images/image3.png "image_tooltip")
+
+
+
+
+
+![alt_text](images/image6.png "image_tooltip")
+
 
 
 ![alt_text](images/image43.png "image_tooltip")
-
-
-
-
-![alt_text](images/image44.png "image_tooltip")
-
-
-
-
-![alt_text](images/image45.png "image_tooltip")
-
-
-
-
-
-![alt_text](images/image46.png "image_tooltip")
-
-
-
-![alt_text](images/image47.png "image_tooltip")
 
 
 Fig 27: Example of wetness images and corresponding STR-NDVI scatterplot.
@@ -1222,11 +1222,7 @@ Fig 27: Example of wetness images and corresponding STR-NDVI scatterplot.
 The following graph correlates the trend of OPTRAM, NDVI and NDMI mean values in the January to August time span normalized between 0 and 1. Although the exact pixel values of the three indices can not be directly compared, the graph suggests a possible trend between the indices.
 
 
-
-<p id="gdcalert48" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image48.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert49">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image48.png "image_tooltip")
+![alt_text](images/image14.png "image_tooltip")
 
 
 Fig 28: Plot of NDMI and OPTRAM mean values normalized between 0-1.
@@ -1235,16 +1231,10 @@ Under further inspection, it’s possible to  appreciate the local situation bet
 
 
 
-<p id="gdcalert49" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image49.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert50">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+![alt_text](images/image27.png "image_tooltip")
 
 
-![alt_text](images/image49.png "image_tooltip")
 
-
-<p id="gdcalert50" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image50.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert51">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image50.png "image_tooltip")
 
 
 Fig 29: Example of wetness images and corresponding NDMI image.
@@ -1263,10 +1253,7 @@ Day 01-Mar-2021: The left picture shows that crops generally have a NDMI of 0.2-
 
 
 
-<p id="gdcalert51" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image51.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert52">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image51.png "image_tooltip")
+![alt_text](images/image41.png "image_tooltip")
 
 
 
@@ -1275,20 +1262,15 @@ Day 13-Lug-2021: The left picture shows that crops generally have a NDMI of  -0.
 
 
 
-<p id="gdcalert52" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image52.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert53">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
-
-![alt_text](images/image52.png "image_tooltip")
+![alt_text](images/image4.png "image_tooltip")
 
 
 Day 27-Ago-2021: The left picture shows that crops generally have a NDMI of  -0.2 with very low wetness of 0.1. NDVI values around 0.2-0.3. I can assume Sparse or low vegetation cover with high water stress.
 
 
 
-<p id="gdcalert53" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image53.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert54">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image53.png "image_tooltip")
+![alt_text](images/image15.png "image_tooltip")
 
 
 Fig 30: multiple Compositions of NDMI and wetness compared to pixel density (left) and NDVI value (right)
@@ -1345,26 +1327,19 @@ Added User interface for selection of max and min NDVI, NDMI, Size of the crop a
 
 
 
-<p id="gdcalert54" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image54.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert55">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image54.png "image_tooltip")
+![alt_text](images/image51.png "image_tooltip")
 
 
 Each crop is labeled and boundaries are displayed.
 
 
 
-<p id="gdcalert55" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image55.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert56">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+![alt_text](images/image48.jpg "image_tooltip")
 
 
-![alt_text](images/image55.jpg "image_tooltip")
 
-
-<p id="gdcalert56" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image56.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert57">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image56.jpg "image_tooltip")
+![alt_text](images/image46.jpg "image_tooltip")
 
 
 Now I can plot some important crop data according to the user input.
@@ -1404,16 +1379,11 @@ Finally these are sample results for user selected NDVI and NDMI ranges for a gi
 
 
 
-<p id="gdcalert57" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image57.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert58">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+![alt_text](images/image16.jpg "image_tooltip")
 
 
-![alt_text](images/image57.jpg "image_tooltip")
 
-
-<p id="gdcalert58" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image58.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert59">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image58.jpg "image_tooltip")
+![alt_text](images/image20.jpg "image_tooltip")
 
 
 
