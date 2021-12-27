@@ -1,95 +1,3 @@
-<!-----
-NEW: Check the "Suppress top comment" option to remove this info from the output.
-
-Conversion time: 20.014 seconds.
-
-
-Using this Markdown file:
-
-1. Paste this output into your source file.
-2. See the notes and action items below regarding this conversion run.
-3. Check the rendered output (headings, lists, code blocks, tables) for proper
-   formatting and use a linkchecker before you publish this page.
-
-Conversion notes:
-
-* Docs to Markdown version 1.0β31
-* Mon Dec 27 2021 06:26:54 GMT-0800 (PST)
-* Source doc: Copia di Danilo Danese IPAV relazione project v1.1
-* Tables are currently converted to HTML tables.
-* This document has images: check for >>>>>  gd2md-html alert:  inline image link in generated source and store images to your server. NOTE: Images in exported zip file from Google Docs may not appear in  the same order as they do in your doc. Please check the images!
-
-
-WARNING:
-You have 38 H1 headings. You may want to use the "H1 -> H2" option to demote all headings by one level.
-
------>
-
-
-<p style="color: red; font-weight: bold">>>>>>  gd2md-html alert:  ERRORs: 0; WARNINGs: 1; ALERTS: 58.</p>
-<ul style="color: red; font-weight: bold"><li>See top comment block for details on ERRORs and WARNINGs. <li>In the converted Markdown or HTML, search for inline alerts that start with >>>>>  gd2md-html alert:  for specific instances that need correction.</ul>
-
-<p style="color: red; font-weight: bold">Links to alert messages:</p><a href="#gdcalert1">alert1</a>
-<a href="#gdcalert2">alert2</a>
-<a href="#gdcalert3">alert3</a>
-<a href="#gdcalert4">alert4</a>
-<a href="#gdcalert5">alert5</a>
-<a href="#gdcalert6">alert6</a>
-<a href="#gdcalert7">alert7</a>
-<a href="#gdcalert8">alert8</a>
-<a href="#gdcalert9">alert9</a>
-<a href="#gdcalert10">alert10</a>
-<a href="#gdcalert11">alert11</a>
-<a href="#gdcalert12">alert12</a>
-<a href="#gdcalert13">alert13</a>
-<a href="#gdcalert14">alert14</a>
-<a href="#gdcalert15">alert15</a>
-<a href="#gdcalert16">alert16</a>
-<a href="#gdcalert17">alert17</a>
-<a href="#gdcalert18">alert18</a>
-<a href="#gdcalert19">alert19</a>
-<a href="#gdcalert20">alert20</a>
-<a href="#gdcalert21">alert21</a>
-<a href="#gdcalert22">alert22</a>
-<a href="#gdcalert23">alert23</a>
-<a href="#gdcalert24">alert24</a>
-<a href="#gdcalert25">alert25</a>
-<a href="#gdcalert26">alert26</a>
-<a href="#gdcalert27">alert27</a>
-<a href="#gdcalert28">alert28</a>
-<a href="#gdcalert29">alert29</a>
-<a href="#gdcalert30">alert30</a>
-<a href="#gdcalert31">alert31</a>
-<a href="#gdcalert32">alert32</a>
-<a href="#gdcalert33">alert33</a>
-<a href="#gdcalert34">alert34</a>
-<a href="#gdcalert35">alert35</a>
-<a href="#gdcalert36">alert36</a>
-<a href="#gdcalert37">alert37</a>
-<a href="#gdcalert38">alert38</a>
-<a href="#gdcalert39">alert39</a>
-<a href="#gdcalert40">alert40</a>
-<a href="#gdcalert41">alert41</a>
-<a href="#gdcalert42">alert42</a>
-<a href="#gdcalert43">alert43</a>
-<a href="#gdcalert44">alert44</a>
-<a href="#gdcalert45">alert45</a>
-<a href="#gdcalert46">alert46</a>
-<a href="#gdcalert47">alert47</a>
-<a href="#gdcalert48">alert48</a>
-<a href="#gdcalert49">alert49</a>
-<a href="#gdcalert50">alert50</a>
-<a href="#gdcalert51">alert51</a>
-<a href="#gdcalert52">alert52</a>
-<a href="#gdcalert53">alert53</a>
-<a href="#gdcalert54">alert54</a>
-<a href="#gdcalert55">alert55</a>
-<a href="#gdcalert56">alert56</a>
-<a href="#gdcalert57">alert57</a>
-<a href="#gdcalert58">alert58</a>
-
-<p style="color: red; font-weight: bold">>>>>> PLEASE check and correct alert issues and delete this message and the inline alerts.<hr></p>
-
 
 # Introduction
 
@@ -144,10 +52,7 @@ The two satellites work on opposite sides of the orbit. The mission is supposed 
 
 
 
-<p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image2.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image2.png "image_tooltip")
+![alt_text](images/image5.png "image_tooltip")
 
 
 FIG 1. Sentinel-2 satellite in an artistic representation.
@@ -160,11 +65,7 @@ The average observation time is 17 min with a peak of 32 min every 100 minutes o
 The satellite has a swath of 290 km. Its spectral range, the global and continuous acquisition, the high-revisit frequency, lead to the daily generation of about 1.6 TBytes of compressed raw image data from the constellation. Since the satellites can produce a very high amount of data, a lossy compression is applied to reduce the data volume. The observation data are digitized in 12 bit.
 
 
-
-<p id="gdcalert3" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image3.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert4">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image3.png "image_tooltip")
+![alt_text](images/image7.png "image_tooltip")
 
 
 FIG 2. Sentinel-2 satellite orbital configuration (Astrium-GmbH). 	
@@ -198,11 +99,7 @@ The Sentinel-2 mission produces a wide list of data products. Products are a com
 
 
 # 
-
-<p id="gdcalert4" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image4.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert5">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image4.png "image_tooltip")
+![alt_text](images/image58.png "image_tooltip")
 
 
 Fig. 3. Level 1 processing chart.
@@ -213,10 +110,8 @@ The users can make use of a software toolbox in order to analyze Payload Data Gr
 
 
 
-<p id="gdcalert5" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image5.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert6">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
-
-![alt_text](images/image5.png "image_tooltip")
+![alt_text](images/image21.png "image_tooltip")
 
 
 Figure 4. Level 2A processing chain overview.
@@ -231,10 +126,9 @@ The sun emits radiation with different wavelengths and frequencies in the electr
 
 The 13 spectral bands span from the visible (VIS) and the near infra-red (NIR) to the short wave infra-red (SWIR) at different spatial resolutions at the ground ranging from 10 to 60 m. The four bands at 10 m resolution meet the user requirements for land cover classification. The 20 m resolution for six bands has been a requirement for other Level 2 parameters. Bands at 60 m are mainly dedicated for atmospheric corrections and cloud screening (443 nm for aerosols retrieval, 940 nm for water vapor correction and 1375 nm for cirrus detection). The 60 m resolution is considered to be adequate to capture the spatial variability of the atmospheric geophysical parameters
 
-<p id="gdcalert6" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image6.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert7">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
 
-![alt_text](images/image6.png "image_tooltip")
+![alt_text](images/image47.png "image_tooltip")
 
 
 Fig 5. MSI spectral bands vs. spatial resolution
@@ -251,11 +145,7 @@ NDVI measures the amount of vegetation on the soil and is related to the health 
 NDVI is derived from the B04 and B08 channels and can be defined as an indicator of the amount of vegetation of the crop and is calculated as the ratio between the difference and the sum of the radiations reflected in the near infrared and red.
 
 
-
-<p id="gdcalert7" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image7.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert8">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image7.png "image_tooltip")
+![alt_text](images/image10.png "image_tooltip")
 
 
 The interpretation of the absolute value of the NDVI is highly informative, since it allows us to immediately recognize the areas of the field that have development problems. The NDVI values can vary between -1 and 1, but those between -1 and 0 are typical of non-cultivated areas such as waterways and urban areas. In cultivated fields the values may vary between 0 and 1 and each value corresponds to a different agronomic situation, regardless of the crop.
@@ -346,10 +236,8 @@ It describes the water stress level of the crop and it is calculated as the rati
 
 
 
-<p id="gdcalert8" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image8.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert9">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
-
-![alt_text](images/image8.png "image_tooltip")
+![alt_text](images/image18.png "image_tooltip")
 
 
 The SWIR band reflects changes in the water quantity in vegetation, in particular the light exposed canopy which is visible from the satellite, while the NIR reflectance does not depend on water content, but it depends only on the internal structure of the leaf and the dry organic part of the leaf.
@@ -449,16 +337,10 @@ SNAP can easily digest Sentinel-2 products and applies several transformations, 
 
 # 
 
-<p id="gdcalert9" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image9.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert10">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
+![alt_text](images/image12.png "image_tooltip")
 
-![alt_text](images/image9.png "image_tooltip")
-
-
-<p id="gdcalert10" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image10.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert11">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image10.png "image_tooltip")
+![alt_text](images/image45.png "image_tooltip")
 
 
 Fig 6: Example of resampled SWIR image.
@@ -492,17 +374,10 @@ end
 Sentinel-2 has a swath range of 290 km and Level 2A images are cropped to 100 km. As seen in the following picture, more than 80% of the image is just sea, so I need to crop images around the Cillarese lake area in order to speed up calculation and eliminate unnecessary data.
 
 
-
-<p id="gdcalert11" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image11.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert12">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image11.jpg "image_tooltip")
+![alt_text](images/image28.jpg "image_tooltip")
 
 
-<p id="gdcalert12" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image12.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert13">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image12.jpg "image_tooltip")
+![alt_text](images/image1.jpg "image_tooltip")
 
 
 Fig 7: Example image in the Visible (VIS) spectral band and a crop section of it.
@@ -560,10 +435,8 @@ end
 
 
 
-<p id="gdcalert13" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image13.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert14">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
-
-![alt_text](images/image13.png "image_tooltip")
+![alt_text](images/image11.png "image_tooltip")
 
 
 Fig 8: Example of a masked image.
@@ -604,12 +477,7 @@ end
 ```
 
 
-
-
-<p id="gdcalert14" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image14.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert15">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image14.png "image_tooltip")
+![alt_text](images/image33.png "image_tooltip")
 
 
 Fig 9: Examples of B04,B08 and NDVI images.
@@ -643,10 +511,7 @@ The resulting images are:
 
 
 
-<p id="gdcalert15" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image15.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert16">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image15.png "image_tooltip")
+![alt_text](images/image13.png "image_tooltip")
 
 
 Fig 10: Examples of B11,B08 and NDMI images.
@@ -688,16 +553,11 @@ First I load the missing green and blue bands (B03, B02) for each day, then I ap
 
 
 
-<p id="gdcalert16" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image16.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert17">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+![alt_text](images/image22.jpg "image_tooltip")
 
 
-![alt_text](images/image16.jpg "image_tooltip")
-
-
-<p id="gdcalert17" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image17.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert18">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image17.jpg "image_tooltip")
+![alt_text](images/image8.jpg "image_tooltip")
 
 
 Fig 11: Sample of edge detection for a single day and final image of aggregation of edges for all days.
@@ -734,16 +594,9 @@ I also applied the function imdilate which increases the thickness of detected e
 
 
 
-<p id="gdcalert18" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image18.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert19">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+![alt_text](images/image30.jpg "image_tooltip")
 
-
-![alt_text](images/image18.jpg "image_tooltip")
-
-
-<p id="gdcalert19" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image19.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert20">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image19.jpg "image_tooltip")
+![alt_text](images/image34.jpg "image_tooltip")
 
 
 Fig 12: Binary Multi-temporal edge detection mask before and after imdilate.
@@ -782,16 +635,13 @@ This is the result:
 
 
 
-<p id="gdcalert20" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image20.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert21">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
 
-![alt_text](images/image20.jpg "image_tooltip")
+
+![alt_text](images/image42.jpg "image_tooltip")
 
 
-<p id="gdcalert21" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image21.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert22">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image21.jpg "image_tooltip")
+![alt_text](images/image40.jpg "image_tooltip")
 
 
 Fig 13: Example of mean values of NDVI for crops and its plotted data.
@@ -799,17 +649,10 @@ Fig 13: Example of mean values of NDVI for crops and its plotted data.
 The same calculation is applied for NDMI.
 
 
-
-<p id="gdcalert22" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image22.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert23">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image22.jpg "image_tooltip")
+![alt_text](images/image9.jpg "image_tooltip")
 
 
-<p id="gdcalert23" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image23.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert24">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image23.jpg "image_tooltip")
+![alt_text](images/image49.jpg "image_tooltip")
 
 
 Fig 14: Example of mean values of NDMI for crops and its plotted data.
@@ -861,18 +704,12 @@ end
 
 
 
-<p id="gdcalert24" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image24.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert25">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
 
-![alt_text](images/image24.png "image_tooltip")
+![alt_text](images/image54.png "image_tooltip")
 
 
-
-
-<p id="gdcalert25" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image25.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert26">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image25.png "image_tooltip")
+![alt_text](images/image2.png "image_tooltip")
 
 
 Fig 15,16: Examples of montage containing the counting of NDVI (NDMI) values of each crop, the clipped image in false colors and the values of NDVI (NDMI) located on some crops.
@@ -944,18 +781,11 @@ saveas(gca,temp);
 
 
 
-<p id="gdcalert26" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image26.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert27">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image26.png "image_tooltip")
+![alt_text](images/image35.png "image_tooltip")
 
 
 
-
-<p id="gdcalert27" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image27.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert28">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image27.png "image_tooltip")
+![alt_text](images/image52.png "image_tooltip")
 
 
 Fig 17,18: Average values of NDVI and NDMI over time. All data is weighted with respect to the weight of each crop area. The blue line represents the average value among all crops each day. The colored circles represent the NDVI(NDMI) value of a given crop each day.
@@ -986,10 +816,8 @@ Now, I can show an example of the georeferenced crops.
 
 
 
-<p id="gdcalert28" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image28.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert29">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
-
-![alt_text](images/image28.jpg "image_tooltip")
+![alt_text](images/image29.jpg "image_tooltip")
 
 
 Fig 19: Coordinates of crops.
@@ -1023,22 +851,13 @@ end
 
 
 
-<p id="gdcalert29" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image29.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert30">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+![alt_text](images/image23.jpg "image_tooltip")
 
 
-![alt_text](images/image29.jpg "image_tooltip")
+![alt_text](images/image37.jpg "image_tooltip")
 
-
-<p id="gdcalert30" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image30.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert31">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image30.jpg "image_tooltip")
-
-
-<p id="gdcalert31" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image31.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert32">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image31.jpg "image_tooltip")
+![alt_text](images/image36.jpg "image_tooltip")
 
 
 Fig 20: Coordinates of crops are shown in the images as red dots. The Blue square in Fig 17 shows the size of the original Sentinel-2 T33TYF product, Fig 18 shows the size of Brindisi cropped area as an Orange square, Fig 19 shows the size of Cillarese area as a Yellow square.
@@ -1105,16 +924,10 @@ end
 
 
 
-<p id="gdcalert32" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image32.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert33">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+![alt_text](images/image39.png "image_tooltip")
 
 
-![alt_text](images/image32.png "image_tooltip")
-
-
-<p id="gdcalert33" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image33.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert34">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image33.png "image_tooltip")
+![alt_text](images/image25.png "image_tooltip")
 
 
 Fig 22, 23: In Qgis it is possible to analyze the trend of NDVI or NDMI of each crop.
@@ -1147,18 +960,11 @@ The OPTRAM model relies on Soil water content (W) derived by combining the norma
 
 
 
-<p id="gdcalert34" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image34.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert35">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
 
-![alt_text](images/image34.png "image_tooltip")
+![alt_text](images/image10.png "image_tooltip")
 
-
-
-
-<p id="gdcalert35" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image35.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert36">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image35.png "image_tooltip")
+![alt_text](images/image32.png "image_tooltip")
 
 
 The required Sentinel-2 bands for NDVI are Red B04 (650 nm), Near infrared NIR B08 (850 nm), while the STR requires only the SWIR B12 (2190 nm) band.
@@ -1169,10 +975,8 @@ The pixel distribution of STR-NDVI is a scatterplot of the two variables. The sc
 
 
 
-<p id="gdcalert36" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image36.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert37">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
-
-![alt_text](images/image36.png "image_tooltip")
+![alt_text](images/image53.png "image_tooltip")
 
 
 Fig 24: Graphical representation of the STR-NDVI space in OPTRAM model (Sadeghi 2017)
@@ -1180,11 +984,7 @@ Fig 24: Graphical representation of the STR-NDVI space in OPTRAM model (Sadeghi 
 Furthermore, I need to calculate the slope and the intercept for the Dry Edge (s<sub>d</sub> and <sub> </sub>i<sub>d</sub>) and for the Wet Edge (s<sub>w </sub>and i<sub>w</sub>). Now I can calculate the Soil Moisture (W). (Sadeghi 2017)
 
 
-
-<p id="gdcalert37" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image37.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert38">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image37.png "image_tooltip")
+![alt_text](images/image38.png "image_tooltip")
 
 
 Since the study is applied on the same area for each day, the pixel distribution along all days is supposed to remain the same, allowing for the same parametrization of the Dry and Wet Edges. The optimal way to detect the Dry and Wet Edges is by visual inspection because it allows to fit the best line on the edge. 
@@ -1237,16 +1037,12 @@ end
 
 
 
-<p id="gdcalert38" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image38.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert39">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
 
-![alt_text](images/image38.jpg "image_tooltip")
+![alt_text](images/image50.jpg "image_tooltip")
 
 
-<p id="gdcalert39" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image39.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert40">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image39.jpg "image_tooltip")
+![alt_text](images/image55.jpg "image_tooltip")
 
 
 Fig 25: Example STR-NDVI scatterplot before and after correction.
@@ -1336,18 +1132,11 @@ The Soil Moisture referred in the code as “wetness_vector2”, has been calcul
 
 
 
-<p id="gdcalert40" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image40.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert41">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+![alt_text](images/image44.png "image_tooltip")
 
 
-![alt_text](images/image40.png "image_tooltip")
-
-
-
-
-<p id="gdcalert41" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image41.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert42">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image41.jpg "image_tooltip")
+![alt_text](images/image24.jpg "image_tooltip")
 
 
 Fig 26: Scatterplot of the two versions of wetness W show linear correlation between the two.
@@ -1399,13 +1188,7 @@ end
 
 
 
-<p id="gdcalert42" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image42.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert43">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
 ![alt_text](images/image42.png "image_tooltip")
-
-
-<p id="gdcalert43" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image43.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert44">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
 
 ![alt_text](images/image43.png "image_tooltip")
@@ -1413,13 +1196,9 @@ end
 
 
 
-<p id="gdcalert44" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image44.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert45">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
 ![alt_text](images/image44.png "image_tooltip")
 
 
-<p id="gdcalert45" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image45.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert46">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
 
 ![alt_text](images/image45.png "image_tooltip")
@@ -1427,13 +1206,9 @@ end
 
 
 
-<p id="gdcalert46" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image46.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert47">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
 
 ![alt_text](images/image46.png "image_tooltip")
 
-
-<p id="gdcalert47" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image47.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert48">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
 
 ![alt_text](images/image47.png "image_tooltip")
